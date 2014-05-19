@@ -42,7 +42,7 @@ Download or clone the source from Github and run setup.py install:
 Requirements
 ------------
 
-sfbulk has no one external dependency:
+sfbulk has one external dependency:
 
 .. code-block:: text
 
