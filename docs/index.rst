@@ -64,4 +64,5 @@ Contents:
     install
     process
     bulk
+    exception
     examples

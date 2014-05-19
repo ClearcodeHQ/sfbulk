@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Development &mdash; sfbulk 1.0.2.8 documentation</title>
+    <title>BulkException &mdash; sfbulk 1.0.2.8 documentation</title>
     
     <link rel="stylesheet" href="_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -30,6 +30,8 @@
     <script type="text/javascript" src="_static/bootstrap-3.1.0/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
     <link rel="top" title="sfbulk 1.0.2.8 documentation" href="index.html" />
+    <link rel="next" title="Examples" href="examples.html" />
+    <link rel="prev" title="Bulk methods" href="bulk.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
@@ -73,6 +75,14 @@
           
             
               
+  <li>
+    <a href="bulk.html" title="Previous Chapter: Bulk methods"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm">&laquo; Bulk methods</span>
+    </a>
+  </li>
+  <li>
+    <a href="examples.html" title="Next Chapter: Examples"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm">Examples &raquo;</span>
+    </a>
+  </li>
             
           
           
@@ -96,10 +106,11 @@
 <div class="container">
   <div class="row">
       <div class="col-md-3">
-        <div id="sidebar" class="bs-sidenav" role="complementary"><ul>
+        <div id="sidebar" class="bs-sidenav" role="complementary"><ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="install.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="process.html">Operation process</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bulk.html">Bulk methods</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">BulkException</a></li>
 <li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
 </ul>
 
@@ -114,53 +125,8 @@
       </div>
     <div class="col-md-9">
       
-  <div class="section" id="development">
-<h1>Development<a class="headerlink" href="#development" title="Permalink to this headline">¶</a></h1>
-<p>Any development help is greatly appreciated. If you have have any new
-features, bug fixes or documentation improvements please feel free to
-contribute.</p>
-<div class="section" id="getting-started">
-<h2>Getting started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h2>
-<p>To start developing on this project, fork this project on our <a class="reference external" href="https://github.com/vcatalano/py-authorize">Github page</a>
-and install from source using the instructions in <a class="reference internal" href="install.html"><em>Install</em></a>.
-Additionally, you will need to install the following dependencies for running
-test and compiling documentation.</p>
-<ul class="simple">
-<li><a class="reference external" href="https://nose.readthedocs.org/en/latest/">nose</a></li>
-<li><a class="reference external" href="http://sphinx-doc.org/">sphinx</a> (for documentation)</li>
-</ul>
-</div>
-<div class="section" id="running-tests">
-<h2>Running Tests<a class="headerlink" href="#running-tests" title="Permalink to this headline">¶</a></h2>
-<p>This project has been configured to use the Nose testing framework.
-The following command will run all tests for the project. Since many of the
-tests connect to the Authorize.net server, running the tests may take quite a
-few seconds.</p>
-<div class="highlight-bash"><div class="highlight"><pre>nosetests
-</pre></div>
-</div>
-<p>To run only local tests, you can use the following command:</p>
-<div class="highlight-bash"><div class="highlight"><pre>nosetests -a <span class="s1">&#39;!live_tests&#39;</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="authorize-net-documentation">
-<h2>Authorize.net documentation<a class="headerlink" href="#authorize-net-documentation" title="Permalink to this headline">¶</a></h2>
-<p>The Authorize.net documentation can be overly verbose and very inconsistent
-with the implementations of many of its features. You can view the
-documentation by visiting the following links:</p>
-<ul class="simple">
-<li><a class="reference external" href="http://developer.authorize.net/">Developer site</a></li>
-<li><a class="reference external" href="http://www.authorize.net/support/AIM_guide_XML.pdf">Advanced Integration Method</a></li>
-<li><a class="reference external" href="http://www.authorize.net/support/CIM_XML_guide.pdf">Customer Information Manager</a></li>
-<li><a class="reference external" href="http://www.authorize.net/support/ARB_guide.pdf">Automated Recurring Billing</a></li>
-</ul>
-</div>
-<div class="section" id="submitting-bugs-and-patches">
-<h2>Submitting bugs and patches<a class="headerlink" href="#submitting-bugs-and-patches" title="Permalink to this headline">¶</a></h2>
-<p>All bug reports, new feature requests and pull requests are handled through
-this project&#8217;s <a class="reference external" href="https://github.com/vcatalano/py-authorize/issues">Github issues</a> page.</p>
-</div>
+  <div class="section" id="bulkexception">
+<h1>BulkException<a class="headerlink" href="#bulkexception" title="Permalink to this headline">¶</a></h1>
 </div>
 
 

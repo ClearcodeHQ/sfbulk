@@ -42,7 +42,8 @@ Download or clone the source from Github and run setup.py install:
 Requirements
 ------------
 
-sfbulk has no external dependency.
+sfbulk has no one external dependency:
 
-If you want to build the docs or run the tests, there are additional
-dependencies, which are covered in the :doc:`development` section.
+.. code-block:: text
+
+   requests==2.3.0
