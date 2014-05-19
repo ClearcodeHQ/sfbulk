@@ -51,9 +51,9 @@ Here is a simple example of a basic insert Campaign operation.
     bulk.job_close()
 
 
-sfbulk is released under the `MIT License`_.
+sfbulk is released under the `LGPL License`_.
 
-.. _MIT License: http://www.opensource.org/licenses/mit-license
+.. _LGPL License: LGPL License: http://www.gnu.org/licenses/lgpl.html
 
 
 Contents:
