@@ -6,6 +6,8 @@ sfbulk
 
 sfbulk is a Python wrapper for the Salesforce.com Bulk API.
 
+Docs: http://clearcode.github.io/sfbulk/
+
 
 Salesforce.com Inc. is a global cloud computing company
 best known for its customer relationship management (CRM) product.
