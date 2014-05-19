@@ -5,3 +5,5 @@
 *.swm
 examples/*
 builds/
+.buildinfo
+.doctrees/
