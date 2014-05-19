@@ -53,7 +53,7 @@ Here is a simple example of a basic insert Campaign operation.
 
 sfbulk is released under the `LGPL License`_.
 
-.. _LGPL License: LGPL License: http://www.gnu.org/licenses/lgpl.html
+.. _LGPL License: http://www.gnu.org/licenses/lgpl.html
 
 
 Contents:
