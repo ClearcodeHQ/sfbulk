@@ -1,0 +1,262 @@
+
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Bulk methods &mdash; sfbulk 1.0.2.8 documentation</title>
+    
+    <link rel="stylesheet" href="_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootswatch-3.1.0/flatly/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '1.0.2.8',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-3.1.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
+    <link rel="top" title="sfbulk 1.0.2.8 documentation" href="index.html" />
+    <link rel="next" title="Examples" href="examples.html" />
+    <link rel="prev" title="Operation process" href="process.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body>
+  
+  <a href="https://github.com/clearcode/sfbulk"
+     class="visible-desktop hidden-xs"><img
+    id="gh-banner"
+    style="position: absolute; top: 50px; right: 0; border: 0;"
+    src="https://s3.amazonaws.com/github/ribbons/forkme_right_white_ffffff.png"
+    alt="Fork me on GitHub"></a>
+  <script>
+    // Adjust banner height.
+    $(function () {
+      var navHeight = $(".navbar .container").css("height");
+      $("#gh-banner").css("top", navHeight);
+    });
+  </script>
+
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html">
+          sfbulk</a>
+      </div>
+
+      <div class="collapse navbar-collapse nav-collapse">
+        <ul class="nav navbar-nav">
+          <li class="divider-vertical"></li>
+          
+          
+            
+              
+  <li>
+    <a href="process.html" title="Previous Chapter: Operation process"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm">&laquo; Operation proces...</span>
+    </a>
+  </li>
+  <li>
+    <a href="examples.html" title="Next Chapter: Examples"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm">Examples &raquo;</span>
+    </a>
+  </li>
+            
+          
+          
+          
+        </ul>
+
+        
+          
+<form class="navbar-form navbar-right" action="search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+        
+      </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+      <div class="col-md-3">
+        <div id="sidebar" class="bs-sidenav" role="complementary"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="process.html">Operation process</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Bulk methods</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#initialization">Initialization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#job-handling">Job handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#batch-handling">Batch handling</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
+</ul>
+
+<form action="search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+        </div>
+      </div>
+    <div class="col-md-9">
+      
+  <div class="section" id="bulk-methods">
+<h1>Bulk methods<a class="headerlink" href="#bulk-methods" title="Permalink to this headline">¶</a></h1>
+<p>The primary object.</p>
+<div class="section" id="initialization">
+<h2>Initialization<a class="headerlink" href="#initialization" title="Permalink to this headline">¶</a></h2>
+<p>Initialize bulk.</p>
+<blockquote>
+<div><div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">sfbulk</span> <span class="kn">import</span> <span class="n">Bulk</span>
+
+<span class="n">bulk</span> <span class="o">=</span> <span class="n">Bulk</span><span class="p">()</span>
+</pre></div>
+</div>
+</div></blockquote>
+<div class="section" id="login">
+<h3>Login<a class="headerlink" href="#login" title="Permalink to this headline">¶</a></h3>
+<p>Before performing any operations bulk must te authorized by login, password and security token.</p>
+<p>The test enviroment is running when you simply give the credentials to test account.</p>
+<blockquote>
+<div><div class="highlight-python"><div class="highlight"><pre><span class="n">bulk</span><span class="o">.</span><span class="n">login</span><span class="p">(</span><span class="s">&#39;username&#39;</span><span class="p">,</span> <span class="s">&#39;password&#39;</span><span class="p">,</span><span class="s">&#39;security_token&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Security token should be generated by web interface, in section:
+&#8220;My Settings&#8221; -&gt; &#8220;Personal&#8221; -&gt; &#8220;Reset My Security Token&#8221;</p>
+</div>
+</div>
+</div>
+<div class="section" id="job-handling">
+<h2>Job handling<a class="headerlink" href="#job-handling" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="job-create">
+<h3>job_create<a class="headerlink" href="#job-create" title="Permalink to this headline">¶</a></h3>
+<p>Create job.</p>
+<blockquote>
+<div><div class="highlight-python"><div class="highlight"><pre><span class="n">bulk</span><span class="o">.</span><span class="n">job_create</span><span class="p">(</span><span class="s">u&#39;insert&#39;</span><span class="p">,</span> <span class="s">u&#39;Campaign&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="job-is-completed">
+<h3>job_is_completed<a class="headerlink" href="#job-is-completed" title="Permalink to this headline">¶</a></h3>
+<p>Check if job is completed.</p>
+<blockquote>
+<div><div class="highlight-python"><div class="highlight"><pre><span class="n">bulk</span><span class="o">.</span><span class="n">job_is_completed</span><span class="p">()</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="job-close">
+<h3>job_close<a class="headerlink" href="#job-close" title="Permalink to this headline">¶</a></h3>
+<p>Close job.</p>
+<blockquote>
+<div><div class="highlight-python"><div class="highlight"><pre><span class="n">bulk</span><span class="o">.</span><span class="n">job_close</span><span class="p">()</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="batch-handling">
+<h2>Batch handling<a class="headerlink" href="#batch-handling" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="batch-create">
+<h3>batch_create<a class="headerlink" href="#batch-create" title="Permalink to this headline">¶</a></h3>
+<p>Create batch.</p>
+<blockquote>
+<div><div class="highlight-python"><div class="highlight"><pre><span class="n">bulk</span><span class="o">.</span><span class="n">batch_create</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="batch-status">
+<h3>batch_status<a class="headerlink" href="#batch-status" title="Permalink to this headline">¶</a></h3>
+<p>Check status of batch.</p>
+<blockquote>
+<div><div class="highlight-python"><div class="highlight"><pre><span class="n">bulk</span><span class="o">.</span><span class="n">batch_status</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Example response:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span><span class="s">u&#39;751i0000001ptNQAAY&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s">u&#39;apexProcessingTime&#39;</span><span class="p">:</span> <span class="s">u&#39;0&#39;</span><span class="p">,</span>
+                         <span class="s">u&#39;apiActiveProcessingTime&#39;</span><span class="p">:</span> <span class="s">u&#39;0&#39;</span><span class="p">,</span>
+                         <span class="s">u&#39;createdDate&#39;</span><span class="p">:</span> <span class="s">u&#39;2014-05-19T10:16:45.000Z&#39;</span><span class="p">,</span>
+                         <span class="s">u&#39;id&#39;</span><span class="p">:</span> <span class="s">u&#39;751i0000001ptNQAAY&#39;</span><span class="p">,</span>
+                         <span class="s">u&#39;jobId&#39;</span><span class="p">:</span> <span class="s">u&#39;750i0000001S8w8AAC&#39;</span><span class="p">,</span>
+                         <span class="s">u&#39;numberRecordsFailed&#39;</span><span class="p">:</span> <span class="s">u&#39;0&#39;</span><span class="p">,</span>
+                         <span class="s">u&#39;numberRecordsProcessed&#39;</span><span class="p">:</span> <span class="s">u&#39;21&#39;</span><span class="p">,</span>
+                         <span class="s">u&#39;state&#39;</span><span class="p">:</span> <span class="s">u&#39;Completed&#39;</span><span class="p">,</span>
+                         <span class="s">u&#39;systemModstamp&#39;</span><span class="p">:</span> <span class="s">u&#39;2014-05-19T10:16:47.000Z&#39;</span><span class="p">,</span>
+                         <span class="s">u&#39;totalProcessingTime&#39;</span><span class="p">:</span> <span class="s">u&#39;0&#39;</span><span class="p">}}</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="batch-result">
+<h3>batch_result<a class="headerlink" href="#batch-result" title="Permalink to this headline">¶</a></h3>
+<p>Check status of batch.</p>
+<blockquote>
+<div><div class="highlight-python"><div class="highlight"><pre><span class="n">bulk</span><span class="o">.</span><span class="n">batch_result</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Example response:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span><span class="s">u&#39;751i0000001ptOTAAY&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s">&#39;&quot;Id&quot;,&quot;Success&quot;,&quot;Created&quot;,&quot;Error&quot;&#39;</span><span class="p">,</span>
+                         <span class="s">&#39;&quot;501i00000008yqOAAQ&quot;,&quot;true&quot;,&quot;false&quot;,&quot;&quot;&#39;</span><span class="p">,</span>
+                         <span class="s">&#39;&quot;501i0000000iSEyAAM&quot;,&quot;true&quot;,&quot;false&quot;,&quot;&quot;&#39;</span><span class="p">,</span>
+                         <span class="s">&#39;&quot;501i0000000iSEzAAM&quot;,&quot;true&quot;,&quot;false&quot;,&quot;&quot;&#39;</span><span class="p">,</span>
+                         <span class="s">&#39;&#39;</span><span class="p">]}</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+</div>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2014, Clearcode, Natalia Frydrych.<br/>
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>
