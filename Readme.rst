@@ -4,10 +4,7 @@ sfbulk
 *Development Status :: 2 - Pre-Alpha*
 
 
-**sfbulk is a Python API for the `Salesforce.com`_ Bulk API.**
-
-
-.. _Salesforce.com: http://www.salesforce.com/
+**sfbulk is a Python API for the Salesforce.com Bulk API.**
 
 
 **Salesforce.com Inc.** is a global cloud computing company
