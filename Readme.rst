@@ -31,6 +31,8 @@ which are processed in the background by Salesforce.
 
 Here is a simple example of a basic insert Campaign operation.
 
+.. code-block:: python
+
     from sfbulk import Bulk
 
     # initialize bulk
