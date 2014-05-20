@@ -17,6 +17,8 @@ sfbulk attempts to alleviate many of the problems programmers might experience
 with Salesforce.com`s` Bulk API by providing a 
 cleaner, simpler and much more coherent API.
 
+.. _API: https://www.salesforce.com/us/developer/docs/api_asynch/
+
 sfbulk supports most all of the Salesforce.com`s Bulk API functionality 
 including:
 
