@@ -4,7 +4,9 @@ Development Status :: 2 - Pre-Alpha
 sfbulk
 ======
 
-sfbulk is a Python wrapper for the Salesforce.com Bulk API.
+sfbulk is a Python API for the `Salesforce.com`_ Bulk API.
+
+.. _Salesforce.com: http://www.salesforce.com/
 
 Docs: http://clearcode.github.io/sfbulk/
 
