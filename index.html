@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="_static/bootswatch-3.1.0/flatly/bootstrap.min.css" type="text/css" />
     <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="_static/my-styles.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
@@ -122,7 +123,8 @@
       
   <div class="section" id="sfbulk">
 <h1>sfbulk<a class="headerlink" href="#sfbulk" title="Permalink to this headline">¶</a></h1>
-<p>sfbulk is a Python API for the Salesforce.com Bulk API.</p>
+<p><em>Development Status :: 2 - Pre-Alpha</em></p>
+<p>sfbulk is a Python API for the <a class="reference external" href="http://www.salesforce.com/">Salesforce.com</a> Bulk API.</p>
 <p>Salesforce.com Inc. is a global cloud computing company
 best known for its customer relationship management (CRM) product.
 Salesforce.com provides different types of <a class="reference external" href="https://www.salesforce.com/us/developer/docs/api_asynch/">API</a>.
@@ -141,6 +143,8 @@ including:</p>
 </ul>
 <p>a large number of records asynchronously by submitting batches
 which are processed in the background by Salesforce.</p>
+<div class="section" id="example">
+<h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
 <p>Here is a simple example of a basic insert Campaign operation.</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">sfbulk</span> <span class="kn">import</span> <span class="n">Bulk</span>
 
@@ -163,8 +167,13 @@ which are processed in the background by Salesforce.</p>
 <span class="n">bulk</span><span class="o">.</span><span class="n">job_close</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>sfbulk is released under the <a class="reference external" href="http://www.gnu.org/licenses/lgpl.html">LGPL License</a>.</p>
-<p>Contents:</p>
+</div>
+<div class="section" id="license">
+<h2>License<a class="headerlink" href="#license" title="Permalink to this headline">¶</a></h2>
+<p>sfbulk is distributed under the <a class="reference external" href="http://www.gnu.org/licenses/lgpl.html">LGPL License</a>.</p>
+</div>
+<div class="section" id="contents">
+<h2>Contents<a class="headerlink" href="#contents" title="Permalink to this headline">¶</a></h2>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="install.html">Installation</a></li>
@@ -173,6 +182,7 @@ which are processed in the background by Salesforce.</p>
 <li class="toctree-l1"><a class="reference internal" href="exception.html">BulkException</a></li>
 <li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
 </ul>
+</div>
 </div>
 </div>
 

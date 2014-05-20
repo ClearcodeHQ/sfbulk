@@ -1,7 +1,12 @@
 sfbulk
 =======
 
-sfbulk is a Python API for the Salesforce.com Bulk API.
+*Development Status :: 2 - Pre-Alpha*
+
+
+sfbulk is a Python API for the `Salesforce.com`_ Bulk API.
+
+.. _Salesforce.com: http://www.salesforce.com/
 
 Salesforce.com Inc. is a global cloud computing company
 best known for its customer relationship management (CRM) product.
@@ -25,6 +30,9 @@ including:
 
 a large number of records asynchronously by submitting batches
 which are processed in the background by Salesforce.
+
+Example
+-------
 
 Here is a simple example of a basic insert Campaign operation.
 
@@ -50,13 +58,15 @@ Here is a simple example of a basic insert Campaign operation.
     # close the job
     bulk.job_close()
 
+License
+-------
 
-sfbulk is released under the `LGPL License`_.
+sfbulk is distributed under the `LGPL License`_.
 
 .. _LGPL License: http://www.gnu.org/licenses/lgpl.html
 
-
-Contents:
+Contents
+--------
 
 .. toctree::
     :maxdepth: 1
