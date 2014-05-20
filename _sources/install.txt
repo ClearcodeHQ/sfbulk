@@ -14,19 +14,6 @@ following commands:
 .. _pip: http://www.pip-installer.org/
 
 
-Install with virtualenv
------------------------
-
-If you are using virtualenv_ to manage your packages, you can install 
-sfbulk using the following commands:
-
-.. code-block:: text
-
-    easy_install sfbulk
-
-.. _virtualenv: http://www.virtualenv.org/
-
-
 Install from source
 -------------------
 

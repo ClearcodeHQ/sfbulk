@@ -15,20 +15,21 @@ best known for its customer relationship management (CRM) product.
 Salesforce.com provides different types of `API`_.
 The **Bulk API** provides programmatic access to allow you to quickly load your organization's data into Salesforce.
 
-.. _API: https://www.salesforce.com/us/developer/docs/api_asynch/
-
+.. _API: https://www.salesforce.com/us/developer/docs/api_asynch/Content/asynch_api_intro.htm
 
 Why sfbulk?
 -----------
 
 **sfbulk** attempts to alleviate many of the problems programmers might experience
 with Salesforce.com's' Bulk API by providing a 
-cleaner, simpler and much more coherent API:
+cleaner, simpler and much more coherent API.
 
-- you don't need to care of a creating XML for SOAP requests
-- you have a very large limits of processing records
+- You don't need to care of a creating XML for SOAP requests (which is usually tedious)
+- You can use the high `limits`_ of processing records (compared to REST API)
 
-sfbulk supports most all of the Salesforce.com's Bulk API functionality 
+.. _limits: https://www.salesforce.com/us/developer/docs/api_asynch/Content/asynch_api_concepts_limits.htm
+
+**sfbulk** supports most all of the Salesforce.com's Bulk API functionality 
 including:
 
 - Query
@@ -47,11 +48,12 @@ Here is a simple example of a basic insert operation for Campaign object.
 
 .. code-block:: python
 
+
     from sfbulk import Bulk
 
     # initialize bulk
     bulk = Bulk()
-    bulk.login('username', 'password','security_token')
+    bulk.login('username', 'password', 'security_token')
 
     # create job
     bulk.job_create(u'insert', u'Campaign')
