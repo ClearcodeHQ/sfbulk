@@ -4,8 +4,7 @@ sfbulk
 *Development Status :: 2 - Pre-Alpha*
 
 
-sfbulk is a Python API for the `Salesforce.com`_ Bulk API.
-##########################################################
+**sfbulk is a Python API for the `Salesforce.com`_ Bulk API.**
 
 
 .. _Salesforce.com: http://www.salesforce.com/
@@ -33,6 +32,7 @@ cleaner, simpler and much more coherent API.
 
 **sfbulk** supports most all of the Salesforce.com's Bulk API functionality 
 including:
+
 - Query
 - Insert
 - Update
