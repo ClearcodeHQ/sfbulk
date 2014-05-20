@@ -3,12 +3,7 @@ sfbulk
 
 *Development Status :: 2 - Pre-Alpha*
 
-
-sfbulk is a Python API for the `Salesforce.com`_ Bulk API.
-##########################################################
-
-
-.. _Salesforce.com: http://www.salesforce.com/
+**sfbulk is a Python API for the Salesforce.com Bulk API.**
 
 
 **Salesforce.com Inc.** is a global cloud computing company
@@ -28,8 +23,16 @@ cleaner, simpler and much more coherent API.
 
 - You don't need to care of a creating XML for SOAP requests (which is usually tedious)
 - You can use the high `limits`_ of processing records (compared to REST API)
+<<<<<<< HEAD
 
 .. _limits: https://www.salesforce.com/us/developer/docs/api_asynch/Content/asynch_api_concepts_limits.htm
+=======
+
+.. _limits: https://www.salesforce.com/us/developer/docs/api_asynch/Content/asynch_api_concepts_limits.htm
+
+**sfbulk** supports most all of the Salesforce.com's Bulk API functionality 
+including:
+>>>>>>> master
 
 **sfbulk** supports most all of the Salesforce.com's Bulk API functionality 
 including:
