@@ -24,7 +24,7 @@ sfbulk implementation
 
 #. Authorize bulk.
 
-    Before performing any operations bulk must te authorized by login, password and security token.
+   Before performing any operations bulk must te authorized by login, password and security token.
 
     .. code-block:: python
 
@@ -36,11 +36,15 @@ sfbulk implementation
 
 #. Create job.
 
+   Create a new job that specifies the **object** and **action**.
+
     .. code-block:: python
 
         bulk.job_create(u'query', u'Contact')
 
-#. Create batch.
+#. Create batch/batches.
+
+   That's how data should be formatted is highly dependent on the type of action.
 
     .. code-block:: python
 
@@ -49,18 +53,24 @@ sfbulk implementation
 
 #. Wait untill job finishes.
 
+   Check status of job at a reasonable interval.
+
     .. code-block:: python
 
         while (not bulk.job_is_completed()):
             sleep(10)
 
-#. Show batch status (optional).
+#. Check batch status (optional).
+
+   When all batches have either completed or failed, retrieve the result for each batch.
 
     .. code-block:: python
 
         status = bulk.batch_status()
 
-#. Show batch result (optional).
+#. Check batch result (optional).
+
+   Match the result sets with the original data set to determine which records failed and succeeded.
 
     .. code-block:: python
 
