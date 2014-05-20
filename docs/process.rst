@@ -1,6 +1,19 @@
 Operation process
 =================
 
+The Bulk API lets you query, insert, update, upsert, or delete a large number of records asynchronously.
+
+All operations use HTTP GET or POST methods to send and receive XML or CSV data.
+
+How Bulk API works
+------------------
+
+You process a set of records by creating a **job that contains one or more batches**. The **job specifies which object is being processed and what type of action is being used** (query, insert, upsert, update, or delete). A job is represented by the **JobInfo** resource. This resource is used to create a new job, get status for an existing job, and change status for a job. A **batch is a set of records sent to the server**. You first send a number of batches to the server using an HTTP POST request and then the server processes the batches in the background. A batch is created by submitting a CSV or XML representation of a set of records and any references to binary attachment. Once created, the status of a batch is represented by a **BatchInfo** resource.  Each batch is processed independently by the server, not necessarily in the order it is received. While batches are being processed, you can track progress by checking the status of the job using an HTTP GET call. When a batch is complete, the result for each record is available in a result set resource.
+
+
+sfbulk implementation
+---------------------
+
 #. Initialize bulk.
 
     .. code-block:: python

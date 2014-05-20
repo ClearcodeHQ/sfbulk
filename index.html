@@ -124,14 +124,21 @@
   <div class="section" id="sfbulk">
 <h1>sfbulk<a class="headerlink" href="#sfbulk" title="Permalink to this headline">¶</a></h1>
 <p><em>Development Status :: 2 - Pre-Alpha</em></p>
-<p>sfbulk is a Python API for the <a class="reference external" href="http://www.salesforce.com/">Salesforce.com</a> Bulk API.</p>
-<p>Salesforce.com Inc. is a global cloud computing company
-best known for its customer relationship management (CRM) product.
-Salesforce.com provides different types of <a class="reference external" href="https://www.salesforce.com/us/developer/docs/api_asynch/">API</a>.
-The Bulk API provides programmatic access to allow you to quickly load your organization&#8217;s data into Salesforce.
-sfbulk attempts to alleviate many of the problems programmers might experience
+<div class="section" id="sfbulk-is-a-python-api-for-the-salesforce-com-bulk-api">
+<h2>sfbulk is a Python API for the <a class="reference external" href="http://www.salesforce.com/">Salesforce.com</a> Bulk API.<a class="headerlink" href="#sfbulk-is-a-python-api-for-the-salesforce-com-bulk-api" title="Permalink to this headline">¶</a></h2>
+<p><strong>Salesforce.com Inc.</strong> is a global cloud computing company
+best known for its customer relationship management (CRM) product.</p>
+<p>Salesforce.com provides different types of <a class="reference external" href="https://www.salesforce.com/us/developer/docs/api_asynch/">API</a>.
+The <strong>Bulk API</strong> provides programmatic access to allow you to quickly load your organization&#8217;s data into Salesforce.</p>
+<div class="section" id="why-sfbulk">
+<h3>Why sfbulk?<a class="headerlink" href="#why-sfbulk" title="Permalink to this headline">¶</a></h3>
+<p><strong>sfbulk</strong> attempts to alleviate many of the problems programmers might experience
 with Salesforce.com&#8217;s&#8216; Bulk API by providing a
-cleaner, simpler and much more coherent API.</p>
+cleaner, simpler and much more coherent API:</p>
+<ul class="simple">
+<li>you don&#8217;t need to care of a creating XML for SOAP requests</li>
+<li>you have a very large limits of processing records</li>
+</ul>
 <p>sfbulk supports most all of the Salesforce.com&#8217;s Bulk API functionality
 including:</p>
 <ul class="simple">
@@ -143,9 +150,10 @@ including:</p>
 </ul>
 <p>a large number of records asynchronously by submitting batches
 which are processed in the background by Salesforce.</p>
+</div>
 <div class="section" id="example">
-<h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
-<p>Here is a simple example of a basic insert Campaign operation.</p>
+<h3>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h3>
+<p>Here is a simple example of a basic insert operation for Campaign object.</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">sfbulk</span> <span class="kn">import</span> <span class="n">Bulk</span>
 
 <span class="c"># initialize bulk</span>
@@ -169,11 +177,11 @@ which are processed in the background by Salesforce.</p>
 </div>
 </div>
 <div class="section" id="license">
-<h2>License<a class="headerlink" href="#license" title="Permalink to this headline">¶</a></h2>
+<h3>License<a class="headerlink" href="#license" title="Permalink to this headline">¶</a></h3>
 <p>sfbulk is distributed under the <a class="reference external" href="http://www.gnu.org/licenses/lgpl.html">LGPL License</a>.</p>
 </div>
 <div class="section" id="contents">
-<h2>Contents<a class="headerlink" href="#contents" title="Permalink to this headline">¶</a></h2>
+<h3>Contents<a class="headerlink" href="#contents" title="Permalink to this headline">¶</a></h3>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="install.html">Installation</a></li>
@@ -182,6 +190,7 @@ which are processed in the background by Salesforce.</p>
 <li class="toctree-l1"><a class="reference internal" href="exception.html">BulkException</a></li>
 <li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
 </ul>
+</div>
 </div>
 </div>
 </div>

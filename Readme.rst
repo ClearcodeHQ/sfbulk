@@ -11,8 +11,10 @@ sfbulk is a Python API for the `Salesforce.com`_ Bulk API.
 
 Salesforce.com Inc. is a global cloud computing company
 best known for its customer relationship management (CRM) product.
+
 Salesforce.com provides different types of `API`_.
 The Bulk API provides programmatic access to allow you to quickly load your organization`s data into Salesforce.
+
 sfbulk attempts to alleviate many of the problems programmers might experience
 with Salesforce.com`s` Bulk API by providing a 
 cleaner, simpler and much more coherent API.
@@ -34,7 +36,7 @@ which are processed in the background by Salesforce.
 Example
 -------
 
-Here is a simple example of a basic insert Campaign operation.
+Here is a simple example of a basic insert operation for Campaign object.
 
 .. code-block:: python
 
