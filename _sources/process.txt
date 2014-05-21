@@ -62,7 +62,7 @@ sfbulk implementation
 
 #. Check batch status (optional).
 
-   When all batches have either completed or failed, retrieve the result for each batch.
+   When all batches have either completed or failed, retrieve the status for each batch.
 
     .. code-block:: python
 
@@ -77,6 +77,8 @@ sfbulk implementation
         result = bulk.batch_result()
 
 #. Close job.
+
+    Close the job. Once closed, no more batches can be sent as part of the job.
 
     .. code-block:: python
 

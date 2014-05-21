@@ -193,7 +193,7 @@
 </div></blockquote>
 </li>
 <li><p class="first">Check batch status (optional).</p>
-<p>When all batches have either completed or failed, retrieve the result for each batch.</p>
+<p>When all batches have either completed or failed, retrieve the status for each batch.</p>
 <blockquote>
 <div><div class="highlight-python"><div class="highlight"><pre><span class="n">status</span> <span class="o">=</span> <span class="n">bulk</span><span class="o">.</span><span class="n">batch_status</span><span class="p">()</span>
 </pre></div>
@@ -210,7 +210,8 @@
 </li>
 <li><p class="first">Close job.</p>
 <blockquote>
-<div><div class="highlight-python"><div class="highlight"><pre><span class="n">bulk</span><span class="o">.</span><span class="n">job_close</span><span class="p">()</span>
+<div><p>Close the job. Once closed, no more batches can be sent as part of the job.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">bulk</span><span class="o">.</span><span class="n">job_close</span><span class="p">()</span>
 </pre></div>
 </div>
 </div></blockquote>
