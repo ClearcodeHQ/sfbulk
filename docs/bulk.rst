@@ -15,6 +15,25 @@ Initialize bulk.
         bulk = Bulk()
 
 
+Optionally, you can initialize bulk with logger instance (which supports basic logging actions like: info, warning etc.), then you will be able to logging operations performed by the library.
+
+    .. code-block:: python
+
+            from sfbulk import Bulk
+
+            import logging
+            import sys
+
+
+            root = logging.getLogger()
+            root.setLevel(logging.DEBUG)
+            logger = logging.StreamHandler(sys.stdout)
+            logger.setLevel(logging.DEBUG)
+
+            # initialize bulk
+            bulk = Bulk(logger)
+
+
 Login
 ^^^^^
 
@@ -28,6 +47,11 @@ The test enviroment is running when you simply give the credentials to test acco
     .. code-block:: python
 
             bulk.login('username', 'password','security_token')
+
+
+            TE: logger is optional
+            import logging
+            import sys
 
 
 Job handling
