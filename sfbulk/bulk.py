@@ -52,7 +52,7 @@ class Bulk(sf):
         self.bulk_server = bulk_server
         self.sessionid = sessionid
         self.callClient = None
-        self.logger = logger or self.LOGGER
+        self.logger = self.LOGGER
 
     def job_create(self, operation, sf_object, externalidfield=None):
         self.jobinfo = JobInfo.factory(operation, sf_object, externalidfield)

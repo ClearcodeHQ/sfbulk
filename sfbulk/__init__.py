@@ -9,3 +9,4 @@ Created on Oct 26, 2012
 """
 
 from sfbulk.bulk import Bulk
+from sfbulk.sf import logger

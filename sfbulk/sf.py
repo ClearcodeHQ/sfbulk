@@ -8,7 +8,7 @@ from sfbulk.utils_xml import parseXMLResult
 # LOGGING
 
 logging.basicConfig()
-logger = logging.getLogger(u'')
+logger = logging.getLogger(u'sfbulk')
 
 
 # XML CONSTANS
