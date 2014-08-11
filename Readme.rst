@@ -1,18 +1,23 @@
 sfbulk
 =======
-
 *Development Status :: 2 - Pre-Alpha*
 
-**sfbulk is a Python API for the Salesforce.com Bulk API.**
+sfbulk is a Python API wrapper for the `Salesforce.com's`_ Bulk API.
+####################################################################
+
+
+.. _Salesforce.com's: http://www.salesforce.com/
 
 
 **Salesforce.com Inc.** is a global cloud computing company
 best known for its customer relationship management (CRM) product.
 
 Salesforce.com provides different types of `API`_.
-The **Bulk API** provides programmatic access to allow you to quickly load your organization's data into Salesforce.
+The `Bulk API`_ provides programmatic access that allow you to quickly load a big parties of your organization's data into the Salesforce.
 
 .. _API: https://www.salesforce.com/us/developer/docs/api_asynch/Content/asynch_api_intro.htm
+
+.. _Bulk API: https://www.salesforce.com/us/developer/docs/api_asynch/
 
 Why sfbulk?
 -----------
@@ -21,26 +26,24 @@ Why sfbulk?
 with Salesforce.com's' Bulk API by providing a 
 cleaner, simpler and much more coherent API.
 
-- You don't need to care of a creating XML for SOAP requests (which is usually tedious)
-- You can use the high `limits`_ of processing records (compared to REST API)
-<<<<<<< HEAD
+- You don't need to care of a creating **XML** for **SOAP** requests *(if you're here, you're aware of how it is with SOAP in Python...)*
+- You can use the high `limits`_ of processing records (compared to Rest API)
+- You can use it as an **programming** alternative to **clicking** `Data Loader`_
+- You can control **sfbulk** operations by **Salesforce Bulk API monitor**
+
 
 .. _limits: https://www.salesforce.com/us/developer/docs/api_asynch/Content/asynch_api_concepts_limits.htm
-=======
-
-.. _limits: https://www.salesforce.com/us/developer/docs/api_asynch/Content/asynch_api_concepts_limits.htm
+.. _Data Loader: https://developer.salesforce.com/page/Data_Loader
+.. _Salesforce Bulk API monitor: 
 
 **sfbulk** supports most all of the Salesforce.com's Bulk API functionality 
 including:
->>>>>>> master
 
-**sfbulk** supports most all of the Salesforce.com's Bulk API functionality 
-including:
-- Query
-- Insert
-- Update
-- Upsert
-- Delete
+- query
+- insert
+- update
+- upsert
+- delete
 
 a large number of records asynchronously by submitting batches
 which are processed in the background by Salesforce.
@@ -48,37 +51,39 @@ which are processed in the background by Salesforce.
 Example
 -------
 
-Here is a simple example of a basic insert operation for Campaign object.
+Here is a simple example of a basic **insert** operation for **Campaign** object processed with **sfbulk**.
 
 .. code-block:: python
 
-    from sfbulk import Bulk
+
+    from sfbulk import Bulk, logger
+    from time import sleep
+
+    # enable logging
+    logger.setLevel(logging.DEBUG)
+
 
     # initialize bulk
     bulk = Bulk()
-    bulk.login('username', 'password','security_token')
+    bulk.login('username', 'password', 'security_token')
 
     # create job
-    bulk.job_create(u'insert', u'Campaign')
+    bulk.job_create('insert', 'Campaign')
 
     # create batch
     data = 'Name\none\ntwo\nthree'
     bulk.batch_create(data)
 
-    # wait until job finishes
+    # wait until job is completed
     while (not bulk.job_is_completed()):
         sleep(10)
 
-    # close the job
+    # close job
     bulk.job_close()
 
+.. seealso::
+    Check the rest of the documentation: :ref:`operation_process`, :ref:`bulk_methods` to learn more about **sfbulk**.
 
-Documentation
--------------
-
-Please visit the `Github Page`_ for full documentation.
-
-.. _Github Page: http://clearcode.github.io/sfbulk/
 
 
 License
@@ -87,12 +92,3 @@ License
 sfbulk is distributed under the `LGPL License`_.
 
 .. _LGPL License: http://www.gnu.org/licenses/lgpl.html
-
-
-Support
--------
-
-All bug reports, new feature requests and pull requests are handled through 
-this project's `Github issues`_ page.
-
-.. _Github issues: https://github.com/clearcode/sfbulk/issues

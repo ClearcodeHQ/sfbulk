@@ -110,7 +110,8 @@
         <div id="sidebar" class="bs-sidenav" role="complementary"><ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="install.html">Installation</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="">Operation process</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#how-bulk-api-works">How Bulk API works</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-salesforce-bulk-api-works">How Salesforce Bulk API works?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#salesforce-bulk-api-monitor">Salesforce Bulk API monitor</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#sfbulk-implementation">sfbulk implementation</a></li>
 </ul>
 </li>
@@ -131,23 +132,33 @@
     <div class="col-md-9">
       
   <div class="section" id="operation-process">
-<h1>Operation process<a class="headerlink" href="#operation-process" title="Permalink to this headline">¶</a></h1>
-<p>The Bulk API lets you query, insert, update, upsert, or delete a large number of records asynchronously.</p>
+<span id="id1"></span><h1>Operation process<a class="headerlink" href="#operation-process" title="Permalink to this headline">¶</a></h1>
+<p>The Salesforce Bulk API lets you query, insert, update, upsert, or delete a large number of records asynchronously.</p>
 <p>All operations use HTTP GET or POST methods to send and receive XML or CSV data.</p>
-<div class="section" id="how-bulk-api-works">
-<h2>How Bulk API works<a class="headerlink" href="#how-bulk-api-works" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="how-salesforce-bulk-api-works">
+<h2>How Salesforce Bulk API works?<a class="headerlink" href="#how-salesforce-bulk-api-works" title="Permalink to this headline">¶</a></h2>
 <p>You process a set of records by creating a <strong>job that contains one or more batches</strong>. The <strong>job specifies which object is being processed and what type of action is being used</strong> (query, insert, upsert, update, or delete). A job is represented by the <strong>JobInfo</strong> resource. This resource is used to create a new job, get status for an existing job, and change status for a job. A <strong>batch is a set of records sent to the server</strong>. You first send a number of batches to the server using an HTTP POST request and then the server processes the batches in the background. A batch is created by submitting a CSV or XML representation of a set of records and any references to binary attachment. Once created, the status of a batch is represented by a <strong>BatchInfo</strong> resource.  Each batch is processed independently by the server, not necessarily in the order it is received. While batches are being processed, you can track progress by checking the status of the job using an HTTP GET call. When a batch is complete, the result for each record is available in a result set resource.</p>
+</div>
+<div class="section" id="salesforce-bulk-api-monitor">
+<span id="id2"></span><h2>Salesforce Bulk API monitor<a class="headerlink" href="#salesforce-bulk-api-monitor" title="Permalink to this headline">¶</a></h2>
+<p>Salesforce web interface provides <strong>monitor for Bulk API</strong>. By using it you can monitor the status of recent bulk data load jobs created by <strong>Data Loader</strong> and other <strong>Bulk API client applications</strong>, including <strong>sfbulk</strong>.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last"><strong>BULK API MONITOR</strong>: You&#8217;ll find this monitor under the section: <strong>Setup</strong>-&gt; <strong>Jobs</strong> -&gt; <strong>Bulk Data Load Jobs</strong></p>
+</div>
 </div>
 <div class="section" id="sfbulk-implementation">
 <h2>sfbulk implementation<a class="headerlink" href="#sfbulk-implementation" title="Permalink to this headline">¶</a></h2>
+<p>This implementation is based on the primary <strong>Bulk object that has methods to control job and batches</strong>. In the present implementation one <strong>Bulk</strong> can simultaneously maintain a one <strong>job</strong> with many <strong>batches</strong>.</p>
 <ol class="arabic">
-<li><p class="first">Initialize bulk.</p>
+<li><p class="first"><strong>Initialize bulk.</strong></p>
 <blockquote>
 <div><div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">sfbulk</span> <span class="kn">import</span> <span class="n">Bulk</span>
 
 <span class="n">bulk</span> <span class="o">=</span> <span class="n">Bulk</span><span class="p">()</span>
 </pre></div>
 </div>
+<p>Method docs: <a class="reference internal" href="bulk.html#initialization"><em>initialization</em></a></p>
 </div></blockquote>
 </li>
 <li><p class="first">Authorize bulk.</p>
@@ -156,14 +167,7 @@
 <div><div class="highlight-python"><div class="highlight"><pre><span class="n">bulk</span><span class="o">.</span><span class="n">login</span><span class="p">(</span><span class="s">&#39;username&#39;</span><span class="p">,</span> <span class="s">&#39;pasword&#39;</span><span class="p">,</span> <span class="s">&#39;security_token&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last"><strong>SECURITY TOKEN</strong>: Security token should be generated by web interface in section: &#8220;My Settings&#8221; -&gt; &#8220;Personal&#8221; -&gt; &#8220;Reset My Security Token&#8221;</p>
-</div>
-<div class="admonition warning">
-<p class="first admonition-title">Warning</p>
-<p class="last"><strong>TEST ENVIRONMENT</strong>: The test environment is running when you simply give the credentials to test account.</p>
-</div>
+<p>Method docs: <a class="reference internal" href="bulk.html#login"><em>login</em></a></p>
 </div></blockquote>
 </li>
 <li><p class="first">Create job.</p>
@@ -183,7 +187,7 @@
 </div>
 </div></blockquote>
 </li>
-<li><p class="first">Wait untill job finishes.</p>
+<li><p class="first">Wait untill job is completed.</p>
 <p>Check status of job at a reasonable interval.</p>
 <blockquote>
 <div><div class="highlight-python"><div class="highlight"><pre><span class="k">while</span> <span class="p">(</span><span class="ow">not</span> <span class="n">bulk</span><span class="o">.</span><span class="n">job_is_completed</span><span class="p">()):</span>
