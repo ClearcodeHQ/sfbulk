@@ -11,7 +11,7 @@ All operations use HTTP GET or POST methods to send and receive XML or CSV data.
 How Salesforce Bulk API works?
 ------------------------------
 
-You process a set of records by creating a **job that contains one or more batches**. The **job specifies which object is being processed and what type of action is being used** (query, insert, upsert, update, or delete). A job is represented by the **JobInfo** resource. This resource is used to create a new job, get status for an existing job, and change status for a job. A **batch is a set of records sent to the server**. You first send a number of batches to the server using an HTTP POST request and then the server processes the batches in the background. A batch is created by submitting a CSV or XML representation of a set of records and any references to binary attachment. Once created, the status of a batch is represented by a **BatchInfo** resource.  Each batch is processed independently by the server, not necessarily in the order it is received. While batches are being processed, you can track progress by checking the status of the job using an HTTP GET call. When a batch is complete, the result for each record is available in a result set resource.
+You process a set of records by creating a **job that contains one or more batches**. The **job specifies which object is being processed and what type of action is being used** (query, insert, upsert, update, or delete). A job is represented by the **JobInfo** resource. This resource is used to create a new job, get status for an existing job, and change status for a job. A **batch is a set of records sent to the server**. You first send a number of batches to the server using an HTTP POST request and then the server processes the batches in the background. A batch is created by submitting a CSV or XML representation of a set of records and any references to binary attachment. Once created, the status of a batch is represented by a **BatchInfo** resource.  Each batch is processed independently by the server, not necessarily in the order it is received. While batches are being processed, you can track progress by checking the status of the job using an HTTP GET call. When job (that means all batches) is completed, the result for each record is available in a result set resource.
 
 .. _salesforce-bulk-api-monitor:
 
@@ -37,8 +37,7 @@ This implementation is based on the primary **Bulk object that has methods to co
     Method docs: :ref:`initialization<initialization>`  
 
 
-
-#. Authorize bulk.
+#. **Authorize bulk.**
 
    Before performing any operations bulk must te authorized by login, password and security token.
 
@@ -48,7 +47,8 @@ This implementation is based on the primary **Bulk object that has methods to co
 
     Method docs: :ref:`login<login>`  
 
-#. Create job.
+
+#. **Create job.**
 
    Create a new job that specifies the **object** and **action**.
 
@@ -56,7 +56,9 @@ This implementation is based on the primary **Bulk object that has methods to co
 
         bulk.job_create(u'query', u'Contact')
 
-#. Create batch/batches.
+    Method docs: :ref:`job_create<job_create>`  
+
+#. **Create batch/batches.**
 
    That's how data should be formatted is highly dependent on the type of action.
 
@@ -65,7 +67,8 @@ This implementation is based on the primary **Bulk object that has methods to co
         data = 'SELECT Id FROM Contact'
         bulk.batch_create(data)
 
-#. Wait untill job is completed.
+
+#. **Wait untill job is completed.**
 
    Check status of job at a reasonable interval.
 
@@ -73,6 +76,8 @@ This implementation is based on the primary **Bulk object that has methods to co
 
         while (not bulk.job_is_completed()):
             sleep(10)
+
+    Method docs: :ref:`job_is_completed<job_is_completed>`  
 
 #. Check batch status (optional).
 

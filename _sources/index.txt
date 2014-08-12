@@ -68,7 +68,7 @@ Here is a simple example of a basic **insert** operation for **Campaign** object
     bulk.login('username', 'password', 'security_token')
 
     # create job
-    bulk.job_create(u'insert', u'Campaign')
+    bulk.job_create('insert', 'Campaign')
 
     # create batch
     data = 'Name\none\ntwo\nthree'

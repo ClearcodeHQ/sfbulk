@@ -137,7 +137,7 @@
 <p>All operations use HTTP GET or POST methods to send and receive XML or CSV data.</p>
 <div class="section" id="how-salesforce-bulk-api-works">
 <h2>How Salesforce Bulk API works?<a class="headerlink" href="#how-salesforce-bulk-api-works" title="Permalink to this headline">¶</a></h2>
-<p>You process a set of records by creating a <strong>job that contains one or more batches</strong>. The <strong>job specifies which object is being processed and what type of action is being used</strong> (query, insert, upsert, update, or delete). A job is represented by the <strong>JobInfo</strong> resource. This resource is used to create a new job, get status for an existing job, and change status for a job. A <strong>batch is a set of records sent to the server</strong>. You first send a number of batches to the server using an HTTP POST request and then the server processes the batches in the background. A batch is created by submitting a CSV or XML representation of a set of records and any references to binary attachment. Once created, the status of a batch is represented by a <strong>BatchInfo</strong> resource.  Each batch is processed independently by the server, not necessarily in the order it is received. While batches are being processed, you can track progress by checking the status of the job using an HTTP GET call. When a batch is complete, the result for each record is available in a result set resource.</p>
+<p>You process a set of records by creating a <strong>job that contains one or more batches</strong>. The <strong>job specifies which object is being processed and what type of action is being used</strong> (query, insert, upsert, update, or delete). A job is represented by the <strong>JobInfo</strong> resource. This resource is used to create a new job, get status for an existing job, and change status for a job. A <strong>batch is a set of records sent to the server</strong>. You first send a number of batches to the server using an HTTP POST request and then the server processes the batches in the background. A batch is created by submitting a CSV or XML representation of a set of records and any references to binary attachment. Once created, the status of a batch is represented by a <strong>BatchInfo</strong> resource.  Each batch is processed independently by the server, not necessarily in the order it is received. While batches are being processed, you can track progress by checking the status of the job using an HTTP GET call. When job (that means all batches) is completed, the result for each record is available in a result set resource.</p>
 </div>
 <div class="section" id="salesforce-bulk-api-monitor">
 <span id="id2"></span><h2>Salesforce Bulk API monitor<a class="headerlink" href="#salesforce-bulk-api-monitor" title="Permalink to this headline">¶</a></h2>
@@ -161,7 +161,7 @@
 <p>Method docs: <a class="reference internal" href="bulk.html#initialization"><em>initialization</em></a></p>
 </div></blockquote>
 </li>
-<li><p class="first">Authorize bulk.</p>
+<li><p class="first"><strong>Authorize bulk.</strong></p>
 <p>Before performing any operations bulk must te authorized by login, password and security token.</p>
 <blockquote>
 <div><div class="highlight-python"><div class="highlight"><pre><span class="n">bulk</span><span class="o">.</span><span class="n">login</span><span class="p">(</span><span class="s">&#39;username&#39;</span><span class="p">,</span> <span class="s">&#39;pasword&#39;</span><span class="p">,</span> <span class="s">&#39;security_token&#39;</span><span class="p">)</span>
@@ -170,15 +170,16 @@
 <p>Method docs: <a class="reference internal" href="bulk.html#login"><em>login</em></a></p>
 </div></blockquote>
 </li>
-<li><p class="first">Create job.</p>
+<li><p class="first"><strong>Create job.</strong></p>
 <p>Create a new job that specifies the <strong>object</strong> and <strong>action</strong>.</p>
 <blockquote>
 <div><div class="highlight-python"><div class="highlight"><pre><span class="n">bulk</span><span class="o">.</span><span class="n">job_create</span><span class="p">(</span><span class="s">u&#39;query&#39;</span><span class="p">,</span> <span class="s">u&#39;Contact&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
+<p>Method docs: <a class="reference internal" href="bulk.html#job-create"><em>job_create</em></a></p>
 </div></blockquote>
 </li>
-<li><p class="first">Create batch/batches.</p>
+<li><p class="first"><strong>Create batch/batches.</strong></p>
 <p>That&#8217;s how data should be formatted is highly dependent on the type of action.</p>
 <blockquote>
 <div><div class="highlight-python"><div class="highlight"><pre><span class="n">data</span> <span class="o">=</span> <span class="s">&#39;SELECT Id FROM Contact&#39;</span>
@@ -187,13 +188,14 @@
 </div>
 </div></blockquote>
 </li>
-<li><p class="first">Wait untill job is completed.</p>
+<li><p class="first"><strong>Wait untill job is completed.</strong></p>
 <p>Check status of job at a reasonable interval.</p>
 <blockquote>
 <div><div class="highlight-python"><div class="highlight"><pre><span class="k">while</span> <span class="p">(</span><span class="ow">not</span> <span class="n">bulk</span><span class="o">.</span><span class="n">job_is_completed</span><span class="p">()):</span>
     <span class="n">sleep</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 </pre></div>
 </div>
+<p>Method docs: <a class="reference internal" href="bulk.html#job-is-completed"><em>job_is_completed</em></a></p>
 </div></blockquote>
 </li>
 <li><p class="first">Check batch status (optional).</p>

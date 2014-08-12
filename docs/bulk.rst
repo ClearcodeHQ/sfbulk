@@ -96,29 +96,41 @@ Example with using *mongodb* for saving session data:
             #                       'sessionid': '00Di0000000kQAQIP_GogAZHj1fMmIkj.Js4haI...'}}
 
 
-.. warning:: **EXCEPTIONS WHEN LOGIN**:
-
-
 Job handling
 ------------
+
+.. _job_create:
 
 job_create
 ^^^^^^^^^^
 
 Create job.
 
+The **job specifies which object is being processed and what type of action is being used**. Object must be previously defined in Salesforce, may be either a **primary** or **custom** object. Available actions are: **query**, **insert**, **upsert**, **update**, and **delete**.
+
     .. code-block:: python
 
-        bulk.job_create(u'insert', u'Campaign')
+        bulk.job_create(action, object)
+
+        # bulk.job_create(u'insert', u'Campaign')
+
+.. note:: **API Names**: In relation to objects or fields from Salesforce always manipulate with the values of the API names (each object and field has 'normal' and 'api' name attributes). **Custom** objects and fields usually have suffix **'__c'**. You can see all objects and fields meta-structure by Salesforce web interface, in section: **Setup** -> **Custom**
+
+
+.. _job_is_completed:
 
 job_is_completed
 ^^^^^^^^^^^^^^^^
-
 Check if job is completed.
+
+Jobs are processed in the background by Salesforce, in processing time job status value is set according to status, this method checks whether the status of the job is set to **Completed** (that means **Completed** when success or **Failed** when fail).
+
 
     .. code-block:: python
 
         bulk.job_is_completed()
+
+.. warning:: **TEST / SANDBOX ENVIRONMENT**: The test / sandbox environment is running when you give the credenti
 
 job_close
 ^^^^^^^^^

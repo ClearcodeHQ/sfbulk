@@ -159,7 +159,7 @@
 <blockquote>
 <div><div class="highlight-python"><div class="highlight"><pre><span class="n">bulk</span><span class="o">.</span><span class="n">login</span><span class="p">(</span><span class="s">&#39;username&#39;</span><span class="p">,</span> <span class="s">&#39;password&#39;</span><span class="p">,</span><span class="s">&#39;security_token&#39;</span><span class="p">)</span>
 
-<span class="c"># bulk.login(&#39;n.frydrych@clearcode.cc&#39;, &#39;123456&#39;,&#39;ABCDEF&#39;)</span>
+<span class="c"># bulk.login(&#39;n.frydrych@clearcode.cc&#39;, &#39;123456&#39;, &#39;ABCDEF&#39;)</span>
 </pre></div>
 </div>
 </div></blockquote>
@@ -215,26 +215,30 @@
 </pre></div>
 </div>
 </div></blockquote>
-<div class="admonition warning">
-<p class="first admonition-title">Warning</p>
-<p class="last"><strong>EXCEPTIONS WHEN LOGIN</strong>:</p>
-</div>
 </div>
 </div>
 <div class="section" id="job-handling">
 <h2>Job handling<a class="headerlink" href="#job-handling" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="job-create">
-<h3>job_create<a class="headerlink" href="#job-create" title="Permalink to this headline">¶</a></h3>
+<span id="id4"></span><h3>job_create<a class="headerlink" href="#job-create" title="Permalink to this headline">¶</a></h3>
 <p>Create job.</p>
+<p>The <strong>job specifies which object is being processed and what type of action is being used</strong>. Object must be previously defined in Salesforce, may be either a <strong>primary</strong> or <strong>custom</strong> object. Available actions are: <strong>query</strong>, <strong>insert</strong>, <strong>upsert</strong>, <strong>update</strong>, and <strong>delete</strong>.</p>
 <blockquote>
-<div><div class="highlight-python"><div class="highlight"><pre><span class="n">bulk</span><span class="o">.</span><span class="n">job_create</span><span class="p">(</span><span class="s">u&#39;insert&#39;</span><span class="p">,</span> <span class="s">u&#39;Campaign&#39;</span><span class="p">)</span>
+<div><div class="highlight-python"><div class="highlight"><pre><span class="n">bulk</span><span class="o">.</span><span class="n">job_create</span><span class="p">(</span><span class="n">action</span><span class="p">,</span> <span class="nb">object</span><span class="p">)</span>
+
+<span class="c"># bulk.job_create(u&#39;insert&#39;, u&#39;Campaign&#39;)</span>
 </pre></div>
 </div>
 </div></blockquote>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last"><strong>API Names</strong>: In relation to objects or fields from Salesforce always manipulate with the values of the API names (each object and field has &#8216;normal&#8217; and &#8216;api&#8217; name attributes). <strong>Custom</strong> objects and fields usually have suffix <strong>&#8216;__c&#8217;</strong>. You can see all objects and fields meta-structure by Salesforce web interface, in section: <strong>Setup</strong> -&gt; <strong>Custom</strong></p>
+</div>
 </div>
 <div class="section" id="job-is-completed">
-<h3>job_is_completed<a class="headerlink" href="#job-is-completed" title="Permalink to this headline">¶</a></h3>
+<span id="id5"></span><h3>job_is_completed<a class="headerlink" href="#job-is-completed" title="Permalink to this headline">¶</a></h3>
 <p>Check if job is completed.</p>
+<p>Jobs are processed in the background by Salesforce, this method checks whether the status of the job is set to <strong>Completed</strong> (that means <strong>Completed</strong> when success or <strong>Failed</strong> when fail).</p>
 <blockquote>
 <div><div class="highlight-python"><div class="highlight"><pre><span class="n">bulk</span><span class="o">.</span><span class="n">job_is_completed</span><span class="p">()</span>
 </pre></div>
