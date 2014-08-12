@@ -81,9 +81,13 @@ Here is a simple example of a basic **insert** operation for **Campaign** object
     # close job
     bulk.job_close()
 
-.. seealso::
-    Check the rest of the documentation: :ref:`operation_process`, :ref:`bulk_methods` to learn more about **sfbulk**.
 
+Documentation
+-------------
+
+Learn more from `documentation`_.
+
+.. _documentation: http://clearcode.github.io/sfbulk/
 
 
 License
