@@ -1,14 +1,7 @@
-import logging
 import requests
 
 from sfbulk.exceptions import BulkException
 from sfbulk.utils_xml import parseXMLResult
-
-
-# LOGGING
-
-logging.basicConfig()
-logger = logging.getLogger(u'sfbulk')
 
 
 # XML CONSTANS
@@ -42,9 +35,6 @@ class sf(object):
 
     SOAP_URL = u'https://{domain}.salesforce.com/services/Soap/u/{sf_version}'
     DOMAIN = u'login'
-
-    # LOGGING
-    LOGGER = logger
 
     def login(self, username=u'', password=u'', security_token=u'',
               sf_version=u'26.0', sandbox=False):

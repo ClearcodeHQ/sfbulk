@@ -1,4 +1,6 @@
+import logging
 import time
+
 
 from sfbulk.callout import Callout
 from sfbulk.exceptions import BulkException
@@ -6,6 +8,10 @@ from sfbulk.sf import sf
 from sfbulk.jobinfo import JobInfo
 from sfbulk.utils_csv import loadFromCSVFile
 from sfbulk.utils_xml import parseXMLResult
+
+
+logging.basicConfig()
+LOGGER = logging.getLogger(u'sfbulk')
 
 
 class Bulk(sf):
@@ -52,7 +58,9 @@ class Bulk(sf):
         self.bulk_server = bulk_server
         self.sessionid = sessionid
         self.callClient = None
-        self.logger = self.LOGGER
+        self.logger = logger or LOGGER
+        if not logger:
+            self.logger.disabled = True
 
     def job_create(self, operation, sf_object, externalidfield=None):
         self.jobinfo = JobInfo.factory(operation, sf_object, externalidfield)
@@ -224,7 +232,7 @@ class Bulk(sf):
             results = parseXMLResult(resp)
             resp = self._bulkHttp(
                 self.__join((self.JOB, self.runningJobId, self.BATCH,
-                            batchId, self.RESULT, results['result'])),
+                            batchId, self.RESULT, results.get('result', ''))),
                 None, self.__content_csv, 'GET')
 
         results = resp.split('\n')
