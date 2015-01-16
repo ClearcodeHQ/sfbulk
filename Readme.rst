@@ -93,6 +93,6 @@ Learn more from `documentation`_.
 License
 -------
 
-sfbulk is distributed under the `LGPL License`_.
+sfbulk is distributed under the `GPL License`_.
 
-.. _LGPL License: http://www.gnu.org/licenses/lgpl.html
+.. _GPL License: http://www.gnu.org/licenses/gpl.html
