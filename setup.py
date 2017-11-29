@@ -28,8 +28,6 @@ setup(
     description='Salesforce Bulk API handling with Python',
     url='https://github.com/clearcode/sfbulk',
     license='GPL',
-    author='Natalia Frydrych',
-    author_email='n.frydrych@clearcode.cc',
     packages=['sfbulk'],
     install_requires=[
         'requests == 2.3.0'],
